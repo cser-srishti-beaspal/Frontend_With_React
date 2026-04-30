@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Header =()=>{
+const Header = ()=>{
     return (
         <header>
-            header
-            
+            <h1>My App</h1>
         </header>
     )
 }

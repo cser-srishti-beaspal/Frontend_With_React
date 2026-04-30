@@ -1,0 +1,86 @@
+Custom hook banana React me ek super useful skill hai
+Isse tum repeated logic ko reusable bana sakte ho.
+
+Custom Hook kya hota hai?
+Custom Hook = ek normal JavaScript function
+jo React ke hooks (useState, useEffect, etc.) use karta hai
+aur reusable logic return karta hai.
+
+Rule:
+Custom hook ka naam hamesha use se start hota hai.
+
+Example names:
+useFetch()
+useCounter()
+useLocalStorage()
+Step 1 — Basic Structure
+function useSomething() {
+   // React hooks use kar sakte ho yaha
+   return value;
+}
+
+
+
+Example 1 — useCounter Hook (Most Easy)
+Hum ek counter logic ko reusable banate hain.
+
+hooks/useCounter.js
+import { useState } from "react";
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+  const reset = () => setCount(initialValue);
+  return { count, increment, decrement, reset };
+}
+export default useCounter;
+
+Ye hook kya return kar raha hai?
+
+count value
+increment function
+decrement function
+reset function
+
+Reusable logic ready
+
+Step 2 — Hook ko Component me Use karna
+Counter.jsx
+import React from "react";
+import useCounter from "./hooks/useCounter";
+function Counter() {
+  const { count, increment, decrement, reset } = useCounter(10);
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+export default Counter;
+
+Golden Rules (Important)
+Hook ka naam use se start hona chahiye.
+Hooks sirf:
+React function component
+Ya custom hook ke andar use ho sakte hain.
+Hooks ko conditional me call nahi kar sakte.
+
+Wrong:
+if (condition) {
+  useState()
+}
+
+
+Kab Custom Hook banana chahiye?
+when:
+Same logic multiple components me repeat ho raha ho
+API calls reuse karna ho
+Form handling reuse karna ho
+Local storage use karna ho
+Window resize / dark mode / auth logic reuse karna ho
+
+Simple rule:
+If logic repeat ho raha hai → make a custom hook.
