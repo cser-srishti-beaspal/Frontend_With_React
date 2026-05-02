@@ -8,10 +8,10 @@ const App =()=>{
     return (
         <div>
             {/* <GrandParent></GrandParent> */}
-            <ContextComponent>
+            {/* <ContextComponent>
                 <ContextParent />
-            </ContextComponent>
-            {/* <Products></Products> */}
+            </ContextComponent> */}
+            <Products></Products>
 
         </div>
     )

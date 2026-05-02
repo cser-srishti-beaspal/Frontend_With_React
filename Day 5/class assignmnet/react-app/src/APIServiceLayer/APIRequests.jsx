@@ -15,10 +15,9 @@ let axiosInstance = axios.create({
 })
 
 export let postProduct = async(data)=>{
-    let res = await axiosInstance.post("/products",
-        {name:"jay",friend:"sachin"})
+    let res = await axiosInstance.post("/products",data);
     console.log(res);
-    console.log(res.data);
+  console.log(res.data);
 }
 
 export let patchProduct = async(data)=>{
@@ -34,6 +33,7 @@ export let getProducts = async()=>{
 export let deleteProduct = async(id)=>{
     let res = await axiosInstance.delete(`/products/${id}`)
     console.log(res);
+    return res.data;
 
 }
 
