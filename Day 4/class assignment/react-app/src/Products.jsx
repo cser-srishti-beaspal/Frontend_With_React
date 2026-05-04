@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {getProducts} from './APIServiceLayer/APIRequests';
 
 const Products=()=>{
